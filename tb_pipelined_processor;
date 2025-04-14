@@ -1,0 +1,35 @@
+module tb_pipelined_processor;
+    reg clk, rst;
+    pipelined_processor uut(clk, rst);
+
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
+
+    initial begin
+        rst = 1;
+        #10;
+        rst = 0;
+
+        // Sample program:
+        // reg[2]=10, reg[3]=5
+        uut.reg_file[2] = 8'd10;
+        uut.reg_file[3] = 8'd5;
+
+        // instr_mem[0] = ADD R1, R2, R3
+        uut.instr_mem[0] = 16'b0001_0001_0010_0011;
+        // instr_mem[1] = SUB R4, R2, R3
+        uut.instr_mem[1] = 16'b0010_0100_0010_0011;
+        // data_mem[6] = 25
+        uut.data_mem[6] = 8'd25;
+        // instr_mem[2] = LOAD R5, [6]
+        uut.instr_mem[2] = 16'b0011_0101_0000_0110;
+
+        #100 $finish;
+    end
+
+    initial begin
+        $monitor("Time=%0d, R1=%d, R4=%d, R5=%d", $time, uut.reg_file[1], uut.reg_file[4], uut.reg_file[5]);
+    end
+endmodule
