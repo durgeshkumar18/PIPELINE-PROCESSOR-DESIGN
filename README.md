@@ -14,13 +14,6 @@
 
 #YOU HAVE TO ENTER DESCRIPTION OF YOUR TASK (AND IT SHOULD NOT BE LESS THAN 500 WORDS)
 
-#OUTPUT 
-
-![Image](https://github.com/user-attachments/assets/78541fc0-4131-4cbe-ae6d-486e147fe887)
-
-
----# PIPELINE-PROCESSOR-DESIGN
-
 #OUTPUT
 
 ![Image](https://github.com/user-attachments/assets/2b4576d1-0e8d-44b9-9640-a56d8f46489e)
